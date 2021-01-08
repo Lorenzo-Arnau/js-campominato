@@ -4,7 +4,7 @@ function randomNumber(min, max) {
   return result;
 }
 // funzioni
-
+var maxProof = 10;
 
 
 
@@ -26,7 +26,7 @@ console.log(bombsList);
   var missiliUtente =[];
   var bombaPresa = false;
   var numeroDoppio = false;
-  for (x = 0; x < 10; x++) {   // TODO: Sostituire il 10 con 84
+  for (x = 0; x < maxProof; x++) {   // TODO: Sostituire il 10 con 84
     var missile = parseInt(prompt('Giochiamo! inserisci un numero'));
 
 // L’utente non può inserire più volte lo stesso numero.
@@ -59,7 +59,7 @@ console.log(bombsList);
     }
 
 }
-if (missiliUtente.length === 10) {
+if (missiliUtente.length === maxProof) {
   alert('Fischia! hai vinto!! Sei sopravvissuto!!!!!! Hai totalizzato il massimo dei punti!')
 }
 
