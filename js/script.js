@@ -12,57 +12,48 @@ switch (difficoltà) {
   case '0':
   console.log('modalità facile selezionata');
   range = 'da 1 a 100';
-   maxProof = 10;
-   var bombsList =[];
-   var flag = false;
-   var a = 0;
-   while (a < 16) {
-     var bombs = randomNumber(1,100);
-     if (bombs === bombsList[i]) {
-       flag = true;
-     }else{
-       bombsList.push(bombs);
-       a++;
-     }
-   }
-   console.log(bombsList);
-    break;
+  maxProof = 10;
+  var bombsList =[];
+  var a = 0;
+  while (a < 16) {
+    var bombs = randomNumber(1,100);
+    if (bombs !== bombsList[i]) {
+      bombsList.push(bombs);
+      a++;
+    }
+  }
+  console.log(bombsList);
+  break;
   case '1' :
   console.log('modalità media selezionata');
   range = 'da 1 a 80';
-   maxProof = 15;
-   var bombsList =[];
-   var flag = false;
-   var a = 0;
-   while (a < 16) {
-     var bombs = randomNumber(1,80);
-     if (bombs === bombsList[i]) {
-       flag = true;
-     }else{
-       bombsList.push(bombs);
-       a++;
-     }
-   }
-   console.log(bombsList);
-    break;
+  maxProof = 15;
+  var bombsList =[];
+  var a = 0;
+  while (a < 16) {
+    var bombs = randomNumber(1,80);
+    if (bombs !== bombsList[i]) {
+      bombsList.push(bombs);
+      a++;
+    }
+  }
+  console.log(bombsList);
+  break;
   case '2':
   console.log('modalità difficile selezionata');
   range = 'da 1 a 50';
-   maxProof = 15;
-   var bombsList =[];
-   var flag = false;
-   var a = 0;
-   while (a < 16) {
-     var bombs = randomNumber(1,50);
-     if (bombs === bombsList[i]) {
-       flag = true;
-     }else{
-       bombsList.push(bombs);
-       a++;
-     }
-   }
-   console.log(bombsList);
-    break;
+  maxProof = 15;
+  var bombsList =[];
+  var a = 0;
+  while (a < 16) {
+    var bombs = randomNumber(1,50);
+    if (bombs !== bombsList[i]) {
+      bombsList.push(bombs);
+      a++;
+    }
+  }
+  console.log(bombsList);
+  break;
 }
 
 // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
@@ -104,7 +95,7 @@ for (x = 0; x < maxProof; x++) {
       //   // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
     }
     if (missiliUtente.length === maxProof) {
-      alert('Fischia! hai vinto!! Sei sopravvissuto!!!!!! Hai totalizzato il massimo dei punti!')
+      alert('Fischia! hai vinto!! Sei sopravvissuto!!!!!! Hai totalizzato ' + maxProof + ' punti su '+ maxProof +' !')
     }
   }
 }
@@ -121,3 +112,4 @@ for (x = 0; x < maxProof; x++) {
 // con difficoltà 0 => tra 1 e 100
 // con difficoltà 1 =>  tra 1 e 80
 // con difficoltà 2 => tra 1 e 50
+// FATTO
