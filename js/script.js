@@ -7,6 +7,7 @@ function randomNumber(min, max) {
 
 var maxProof = 10;
 // Il computer deve generare 16 numeri casuali tra 1 e 100.
+// I numeri non possono essere duplicati (tadaaa!)
 var bombsList =[];
  var flag = false;
   var a = 0;
@@ -20,11 +21,6 @@ while (a < 16) {
   }
 }
  console.log(bombsList);
-// I numeri non possono essere duplicati (tadaaa!)
-
-
-
-
 
 // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
   var missiliUtente =[];
@@ -39,6 +35,10 @@ while (a < 16) {
       maxProof = 0;
     }else{
     var missile = parseInt(prompt('Giochiamo! inserisci un numero'));
+    if (isNaN(missile)) {
+      alert('inserisci un numero per favore')
+      x = 0;
+    }else {
     alert('Prosegui')
 
 // L’utente non può inserire più volte lo stesso numero.
@@ -62,6 +62,7 @@ while (a < 16) {
 }
 if (missiliUtente.length === maxProof) {
   alert('Fischia! hai vinto!! Sei sopravvissuto!!!!!! Hai totalizzato il massimo dei punti!')
+}
 }
 }
 
