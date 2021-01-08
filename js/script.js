@@ -4,23 +4,66 @@ function randomNumber(min, max) {
   return result;
 }
 // funzioni
+var range;
+var maxProof;
+var difficoltà = prompt('scegli la difficoltà: con 0 difficoltà facile con 1 difficoltà medio con 2 difficoltà difficile')
 
-var maxProof = 10;
-// Il computer deve generare 16 numeri casuali tra 1 e 100.
-// I numeri non possono essere duplicati (tadaaa!)
-var bombsList =[];
-var flag = false;
-var a = 0;
-while (a < 16) {
-  var bombs = randomNumber(1,100);
-  if (bombs === bombsList[i]) {
-    falg = true;
-  }else{
-    bombsList.push(bombs);
-    a++;
-  }
+switch (difficoltà) {
+  case '0':
+  console.log('modalità facile selezionata');
+  range = 'da 1 a 100';
+   maxProof = 10;
+   var bombsList =[];
+   var flag = false;
+   var a = 0;
+   while (a < 16) {
+     var bombs = randomNumber(1,100);
+     if (bombs === bombsList[i]) {
+       flag = true;
+     }else{
+       bombsList.push(bombs);
+       a++;
+     }
+   }
+   console.log(bombsList);
+    break;
+  case '1' :
+  console.log('modalità media selezionata');
+  range = 'da 1 a 80';
+   maxProof = 15;
+   var bombsList =[];
+   var flag = false;
+   var a = 0;
+   while (a < 16) {
+     var bombs = randomNumber(1,80);
+     if (bombs === bombsList[i]) {
+       flag = true;
+     }else{
+       bombsList.push(bombs);
+       a++;
+     }
+   }
+   console.log(bombsList);
+    break;
+  case '2':
+  console.log('modalità difficile selezionata');
+  range = 'da 1 a 50';
+   maxProof = 15;
+   var bombsList =[];
+   var flag = false;
+   var a = 0;
+   while (a < 16) {
+     var bombs = randomNumber(1,50);
+     if (bombs === bombsList[i]) {
+       flag = true;
+     }else{
+       bombsList.push(bombs);
+       a++;
+     }
+   }
+   console.log(bombsList);
+    break;
 }
-console.log(bombsList);
 
 // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
 var missiliUtente =[];
@@ -34,7 +77,7 @@ for (x = 0; x < maxProof; x++) {
     alert('Hai barato! Hai perso! peccato ,hai totalizzato '+ missiliUtente.length + ' punti!')
     maxProof = 0;
   }else{
-    var missile = parseInt(prompt('Giochiamo! inserisci un numero'));
+    var missile = parseInt(prompt('Giochiamo! inserisci un numero ' + range));
     if (isNaN(missile)) {
       alert('inserisci un numero per favore')
       x = 0;
