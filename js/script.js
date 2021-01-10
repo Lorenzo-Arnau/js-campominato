@@ -22,6 +22,7 @@ function pushBombs(nProof,min,max){
 var rangeString;
 var bombsList;
 var maxProof;
+alert('Benvenuto a campo minato! Scegli la difficoltà e segui le istruzioni per giocare,il gioco finisce se trovi la bomba o se ripeti i numeri inseriti Pronto? Via! E buona fortuna')
 var difficoltà = prompt('scegli la difficoltà: con 0 difficoltà facile con 1 difficoltà medio con 2 difficoltà difficile')
 
 switch (difficoltà) {
@@ -32,7 +33,7 @@ switch (difficoltà) {
   pushBombs(10,1,100);
   console.log(bombsList);
   break;
-  case '1' :
+  case '1':
   console.log('modalità media selezionata');
   rangeString = 'da 1 a 80';
   range = 80;
@@ -93,16 +94,3 @@ for (x = 0; x < maxProof; x++) {
   }
 }
 // ------------------------------------------------
-// Il computer deve generare 16 numeri casuali tra 1 e 100. FATTO.
-// I numeri non possono essere duplicati (tadaaa!)          FATTO.
-// In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.        FATTO.
-// L’utente non può inserire più volte lo stesso numero. FATTO.
-// Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero. FATTO.
-// La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti. FATTO.
-// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito. FATTO.
-// BONUS: (da fare solo se funziona tutto il resto)
-// all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
-// con difficoltà 0 => tra 1 e 100
-// con difficoltà 1 =>  tra 1 e 80
-// con difficoltà 2 => tra 1 e 50
-// FATTO
