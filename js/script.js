@@ -72,7 +72,7 @@ while ( missiliUtente.length < maxProof && bombsList.includes(missile) !== true)
     }else if (missile > range) {
       alert('inserisci un numero nel range indicato')
     }else{
-      alert('Incrocia le dita...')
+      alert('Incrocia le dita...I tuoi numeri fino ad ora ' + missiliUtente.toString())
       // L’utente non può inserire più volte lo stesso numero.
       if (missiliUtente.includes(missile) !== true) {
         missiliUtente.push(missile);
