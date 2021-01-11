@@ -23,7 +23,6 @@ alert('Benvenuto a campo minato! Scegli la difficoltà e segui le istruzioni per
 while (difficoltà != 0 && difficoltà != 1 && difficoltà != 2) {
   difficoltà = prompt('scegli la difficoltà: con 0 o premi invio per difficoltà facile con 1 difficoltà medio con 2 difficoltà difficile')
 }
-
 switch (difficoltà) {
   case '0':
   console.log('modalità facile selezionata');
