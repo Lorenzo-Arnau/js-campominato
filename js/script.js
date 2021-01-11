@@ -4,59 +4,71 @@ function randomNumber(min, max) {
   return result;
 }
 function pushBombs(nProof,min,max){
-  maxProof = nProof;
-  bombsList =[];
-  rangeString = 'da 1 a ' + max;
-  range = max;
-  var a = 0;
-  while (a < 16) {
+  var arrayBombs =[];
+  while (arrayBombs.length < 16) {
     var bombs = randomNumber(min,max);
-    if (bombsList.includes(bombs) === false) {
-      bombsList.push(bombs);
-      a++;
+    if (arrayBombs.includes(bombs) === false) {
+      arrayBombs.push(bombs);
     }
   }
+  return arrayBombs;
 }
 // funzioni
 var rangeString;
+var range;
 var bombsList;
 var maxProof;
-alert('Benvenuto a campo minato! Scegli la difficoltà e segui le istruzioni per giocare,il gioco finisce se trovi la bomba o se ripeti i numeri inseriti Pronto? Via! E buona fortuna')
-var difficoltà = prompt('scegli la difficoltà: con 0 difficoltà facile con 1 difficoltà medio con 2 difficoltà difficile')
+alert('Benvenuto a campo minato! Scegli la difficoltà e segui le istruzioni per giocare,il gioco finisce se trovi la bomba.Pronto? Via! E buona fortuna')
+var difficoltà = prompt('scegli la difficoltà: con 0 o premi invio per difficoltà facile con 1 difficoltà medio con 2 difficoltà difficile')
 
 switch (difficoltà) {
   case '0':
   console.log('modalità facile selezionata');
-  pushBombs(84,1,100);
+  maxProof = 84;
+  range = 100;
+  rangeString = 'da 1 a ' + 100;
+  bombsList = pushBombs(84,1,100);
   console.log(bombsList);
   break;
   case '1':
   console.log('modalità media selezionata');
-  pushBombs(64,1,80);
+  maxProof = 64;
+  range = 80;
+  rangeString = 'da 1 a ' + 80;
+  bombsList = pushBombs(64,1,80);
   console.log(bombsList);
   break;
   case '2':
   console.log('modalità difficile selezionata');
-  pushBombs(34,1,50);
+  maxProof = 34;
+  range = 50;
+  rangeString = 'da 1 a ' + 50;
+  bombsList = pushBombs(34,1,50);
+  console.log(bombsList);
+  break;
+  default:
+  console.log('modalità default selezionata');
+  maxProof = 84;
+  range = 100;
+  rangeString = 'da 1 a ' + 100;
+  bombsList = pushBombs(84,1,100);
   console.log(bombsList);
   break;
 }
 
 // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
 var missiliUtente =[];
-for (x = 0; x < maxProof; x++) {
+var missile;
+while ( missiliUtente.length < maxProof && bombsList.includes(missile) !== true) {
   // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
-  var missile = parseInt(prompt('Giochiamo! inserisci un numero ' + rangeString));
+  missile = parseInt(prompt('Giochiamo! inserisci un numero ' + rangeString));
   if (bombsList.includes(missile) === true) {
     alert('Kaboom! Hai perso! peccato ,hai totalizzato '+ missiliUtente.length + ' punti!')
-    maxProof = 0;
   }else if (missiliUtente.includes(missile) === true) {
-    alert('Hai barato! Hai perso! peccato ,hai totalizzato '+ missiliUtente.length + ' punti!')
-    maxProof = 0;
+    alert('Numero già inserito! reinserisci un altro numero')
   }else{
     if (isNaN(missile)) {
       alert('inserisci un numero per favore')
-      x = 0;
     }else if (missile > range) {
       alert('inserisci un numero nel range indicato')
     }else{
