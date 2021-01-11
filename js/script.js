@@ -60,7 +60,7 @@ for (x = 0; x < maxProof; x++) {
     }else if (missile > range) {
       alert('inserisci un numero nel range indicato')
     }else{
-      alert('Prosegui')
+      alert('Incrocia le dita...')
       // L’utente non può inserire più volte lo stesso numero.
       if (missiliUtente.includes(missile) !== true) {
         missiliUtente.push(missile);
