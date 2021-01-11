@@ -44,17 +44,16 @@ switch (difficoltà) {
 
 // In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
 var missiliUtente =[];
-var bombaPresa = false;
-var numeroDoppio = false;
 for (x = 0; x < maxProof; x++) {
-  if (bombaPresa !== false) {
+  // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
+  var missile = parseInt(prompt('Giochiamo! inserisci un numero ' + rangeString));
+  if (bombsList.includes(missile) === true) {
     alert('Kaboom! Hai perso! peccato ,hai totalizzato '+ missiliUtente.length + ' punti!')
     maxProof = 0;
-  }else if (numeroDoppio !== false) {
+  }else if (missiliUtente.includes(missile) === true) {
     alert('Hai barato! Hai perso! peccato ,hai totalizzato '+ missiliUtente.length + ' punti!')
     maxProof = 0;
   }else{
-    var missile = parseInt(prompt('Giochiamo! inserisci un numero ' + rangeString));
     if (isNaN(missile)) {
       alert('inserisci un numero per favore')
       x = 0;
@@ -63,20 +62,9 @@ for (x = 0; x < maxProof; x++) {
     }else{
       alert('Prosegui')
       // L’utente non può inserire più volte lo stesso numero.
-      for (var i = 0; i < missiliUtente.length; i++) {
-        if (missile === missiliUtente[i]) {
-          numeroDoppio = true;
-        }
-      }
-      if (numeroDoppio !== true) {
+      if (missiliUtente.includes(missile) !== true) {
         missiliUtente.push(missile);
         console.log(missiliUtente);
-      }
-      // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
-      for (var i = 0; i < bombsList.length; i++) {
-        if (missile === bombsList[i]) {
-          bombaPresa = true;
-        }
       }
       //   // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
     }
