@@ -18,8 +18,11 @@ var rangeString;
 var range;
 var bombsList;
 var maxProof;
+var difficoltà;
 alert('Benvenuto a campo minato! Scegli la difficoltà e segui le istruzioni per giocare,il gioco finisce se trovi la bomba.Pronto? Via! E buona fortuna')
-var difficoltà = prompt('scegli la difficoltà: con 0 o premi invio per difficoltà facile con 1 difficoltà medio con 2 difficoltà difficile')
+while (difficoltà != 0 && difficoltà != 1 && difficoltà != 2) {
+  difficoltà = prompt('scegli la difficoltà: con 0 o premi invio per difficoltà facile con 1 difficoltà medio con 2 difficoltà difficile')
+}
 
 switch (difficoltà) {
   case '0':
@@ -61,6 +64,7 @@ var missiliUtente =[];
 var missile;
 while ( missiliUtente.length < maxProof && bombsList.includes(missile) !== true) {
   // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
+  alert('I tuoi numeri fino ad ora ' + missiliUtente.toString());
   missile = parseInt(prompt('Giochiamo! inserisci un numero ' + rangeString));
   if (bombsList.includes(missile) === true) {
     alert('Kaboom! Hai perso! peccato ,hai totalizzato '+ missiliUtente.length + ' punti!')
@@ -72,7 +76,7 @@ while ( missiliUtente.length < maxProof && bombsList.includes(missile) !== true)
     }else if (missile > range) {
       alert('inserisci un numero nel range indicato')
     }else{
-      alert('Incrocia le dita...I tuoi numeri fino ad ora ' + missiliUtente.toString())
+      alert('Incrocia le dita...')
       // L’utente non può inserire più volte lo stesso numero.
       if (missiliUtente.includes(missile) !== true) {
         missiliUtente.push(missile);
