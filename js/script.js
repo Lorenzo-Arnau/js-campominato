@@ -27,17 +27,17 @@ var difficoltà = prompt('scegli la difficoltà: con 0 difficoltà facile con 1 
 switch (difficoltà) {
   case '0':
   console.log('modalità facile selezionata');
-  pushBombs(10,1,100);
+  pushBombs(84,1,100);
   console.log(bombsList);
   break;
   case '1':
   console.log('modalità media selezionata');
-  pushBombs(15,1,80);
+  pushBombs(64,1,80);
   console.log(bombsList);
   break;
   case '2':
   console.log('modalità difficile selezionata');
-  pushBombs(15,1,50);
+  pushBombs(34,1,50);
   console.log(bombsList);
   break;
 }
