@@ -6,15 +6,14 @@ function randomNumber(min, max) {
 function pushBombs(nProof,min,max){
   maxProof = nProof;
   bombsList =[];
+  rangeString = 'da 1 a ' + max;
+  range = max;
   var a = 0;
   while (a < 16) {
     var bombs = randomNumber(min,max);
-    if (bombs !== bombsList[i]) {
+    if (bombsList.includes(bombs) === false) {
       bombsList.push(bombs);
       a++;
-    }else {
-      bombsList.pop()
-      a--;
     }
   }
 }
@@ -28,22 +27,16 @@ var difficoltà = prompt('scegli la difficoltà: con 0 difficoltà facile con 1 
 switch (difficoltà) {
   case '0':
   console.log('modalità facile selezionata');
-  rangeString = 'da 1 a 100';
-  range = 100;
   pushBombs(10,1,100);
   console.log(bombsList);
   break;
   case '1':
   console.log('modalità media selezionata');
-  rangeString = 'da 1 a 80';
-  range = 80;
   pushBombs(15,1,80);
   console.log(bombsList);
   break;
   case '2':
   console.log('modalità difficile selezionata');
-  rangeString = 'da 1 a 50';
-  range = 50;
   pushBombs(15,1,50);
   console.log(bombsList);
   break;
@@ -79,7 +72,6 @@ for (x = 0; x < maxProof; x++) {
         missiliUtente.push(missile);
         console.log(missiliUtente);
       }
-
       // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
       for (var i = 0; i < bombsList.length; i++) {
         if (missile === bombsList[i]) {
